@@ -28,13 +28,15 @@ export default {
     },
     mounted() {
         console.log("montado")
-
+        am4core.options.queue = true;
+        am4core.options.onlyShowOnViewport = true;
         // Create map instance
         var chart = am4core.create(this.$refs.mapa, am4maps.MapChart);
         // Set projection
         chart.projection = new am4maps.projections.Miller();
         //adicion del controlador del zoom
         chart.zoomControl = new am4maps.ZoomControl();
+
 
         // Pais series - Se carga el mapa de Ecuador
         var pais = chart.series.push(new am4maps.MapPolygonSeries());
@@ -128,6 +130,7 @@ export default {
             cm = 0;
             cm2 = 0;
             console.log("adentro pais");
+       
             pais.geodataSource.url = "mapa/" + cm + "/" + cm2 + ".json";
             pais.dataSource.url = "Datos/" +ca+"/"+ cv + "/" + cd + "/" + cm + "/" + cm2 + ".json";
             //pais.data = pais.dataSource.url;
