@@ -28,7 +28,9 @@ export default {
     },
     mounted() {
         console.log("montado")
+        //mapa por cola
         am4core.options.queue = true;
+        //lazy load
         am4core.options.onlyShowOnViewport = true;
         // Create map instance
         var chart = am4core.create(this.$refs.mapa, am4maps.MapChart);
